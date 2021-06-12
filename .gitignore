@@ -1,1 +1,4 @@
 .idea
+./Pokemon_api/service/__pycache__/
+./Pokemon_api/tests/__pycache__/
+./Pokemon_api/venv/
