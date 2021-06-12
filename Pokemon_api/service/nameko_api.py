@@ -12,24 +12,21 @@ class PokemonMovesApi:
 
 
 def pokeapi_request(pokemon_id):
+    url = 'https://pokeapi.co/api/v2/pokemon/' + str(pokemon_id)
+    moves_list = []
+    headers = {
+        "content-type": "application/json; charset=utf-8",
+        "Accept": "*/*",
+    }
     try:
-        url = 'https://pokeapi.co/api/v2/pokemon/' + str(pokemon_id)
-        moves_list = []
-        headers = {
-            "content-type": "application/json; charset=utf-8",
-            "Accept": "*/*",
-            "Connection": "keep-alive"
-        }
         response = requests.get(url=url, headers=headers)
     except requests.exceptions.ConnectionError:
         return "Cant connect to pokeapi.co"
-
     if response.ok is False:
         return "Your pokemon cant be find"
 
     content = response.json()
     moves = content["moves"]
-
     for move in moves:
         moves_list.append(move["move"]["name"])
 

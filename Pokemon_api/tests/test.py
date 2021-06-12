@@ -22,5 +22,4 @@ def test_rest_api_response():
     url = 'http://127.0.0.1:8000/get/13'
     moves = '["bug-bite", "electroweb", "poison-sting", "string-shot"]'
     response = requests.get(url=url, headers=headers)
-    print(response.text)
     assert response.text == moves

@@ -17,7 +17,6 @@ def send_requests_to_nameko():
     headers = {
         "content-type": "application/json; charset=utf-8",
         "Accept": "*/*",
-        "Connection": "keep-alive"
     }
     url = 'http://localhost:8000/get/' + str(pokemon_id)
     try:
